@@ -17,4 +17,5 @@ public class MainActivity extends AppCompatActivity {
   public void mimapa(View view) {
     startActivity(new Intent(this, MiMapa.class));
   }
+
 }
