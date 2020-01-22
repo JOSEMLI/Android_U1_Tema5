@@ -34,4 +34,8 @@ public class MainActivity extends AppCompatActivity {
   public void miclustermap(View view) {
     startActivity(new Intent(this, MiClusterMap.class));
   }
+
+  public void distanciadospuntos(View view) {
+    startActivity(new Intent(this, DistanciaDosPuntos.class));
+  }
 }
