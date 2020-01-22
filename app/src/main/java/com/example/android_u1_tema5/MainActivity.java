@@ -26,4 +26,8 @@ public class MainActivity extends AppCompatActivity {
   public void mipoligon(View view) {
     startActivity(new Intent(this, MiPolygon.class));
   }
+
+  public void mapacalor(View view) {
+    startActivity(new Intent(this, MapaCalor.class));
+  }
 }
