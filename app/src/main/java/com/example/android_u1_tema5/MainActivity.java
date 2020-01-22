@@ -18,4 +18,8 @@ public class MainActivity extends AppCompatActivity {
     startActivity(new Intent(this, MiMapa.class));
   }
 
+  public void mipolyline(View view) {
+
+    startActivity(new Intent(this, MiPolyLine.class));
+  }
 }
