@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MiPolyLine">
+    tools:context=".MiPolygon">
     <fragment
         android:id="@+id/mapa"
         class="com.google.android.gms.maps.SupportMapFragment"

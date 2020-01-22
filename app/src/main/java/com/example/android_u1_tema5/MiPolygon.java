@@ -104,6 +104,17 @@ public class MiPolygon extends AppCompatActivity implements OnMapReadyCallback, 
         markerList.add(marker);
       }
     });
+//para que nos muestre un circulo en un punto seleccionado
+    gMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
+      @Override
+      public void onMapLongClick(LatLng latLng) {
+        CircleOptions circleOptions = new CircleOptions()
+            .center(latLng)
+            .radius(300000);//En metros
+        Circle circle=gMap.addCircle(circleOptions);
+        circle.setStrokeWidth(8);
+      }
+    });
 
 
   }
