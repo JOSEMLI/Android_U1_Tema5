@@ -22,4 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
     startActivity(new Intent(this, MiPolyLine.class));
   }
+
+  public void mipoligon(View view) {
+    startActivity(new Intent(this, MiPolygon.class));
+  }
 }
