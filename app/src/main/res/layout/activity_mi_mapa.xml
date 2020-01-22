@@ -30,11 +30,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
+            android:background="@android:color/holo_orange_dark"
             android:textColor="#fff"
             android:layout_gravity="center"
-            android:onClick="moveCamera"
-            android:text="ir a Tacna"/>
+            android:onClick="eliminar"
+            android:text="eliminar ultimo click"/>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

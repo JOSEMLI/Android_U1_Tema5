@@ -16,10 +16,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+
 public class MiMapa extends FragmentActivity
     implements OnMapReadyCallback, GoogleMap.OnMapClickListener {
   GoogleMap mapa;
   LatLng ubicacion;
+  ArrayList<Marker> Mymarker = new ArrayList<>();
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -56,18 +59,26 @@ public class MiMapa extends FragmentActivity
         .draggable(true));
   }
   @Override public void onMapClick(LatLng puntoPulsado) {
-    mapa.addMarker(new MarkerOptions()
+    Mymarker.add( mapa.addMarker(new MarkerOptions()
         .position(puntoPulsado)
         .icon(BitmapDescriptorFactory.fromResource(R.mipmap.markermap))
         .title("Marker onMapClick")
-        .snippet("Este marker es producto del evento de pulsar en el mapa"));
+        .snippet("Este marker es producto del evento de pulsar en el mapa")));
   }
 
 //  @Override
 //  public void onInfoWindowLongClick(Marker marker) {
 //    marker.remove();
 //  }
+  public void eliminar(View view) {
 
+     if(Mymarker!=null && Mymarker.size() != 0 )
+      {
+        Mymarker.get(Mymarker.size() -1).remove();
+        Mymarker.remove(Mymarker.size()-1);
+      }
+
+}
 
 
 }
