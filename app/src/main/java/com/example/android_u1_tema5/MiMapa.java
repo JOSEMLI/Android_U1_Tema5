@@ -13,6 +13,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MiMapa extends FragmentActivity
@@ -36,20 +37,37 @@ public class MiMapa extends FragmentActivity
     mapa.addMarker(new MarkerOptions().position(ubicacion).title("Marcador Tacna"));
     mapa.moveCamera(CameraUpdateFactory.newLatLng(ubicacion));
     mapa.setOnMapClickListener(this);
+
+    mapa.setOnInfoWindowLongClickListener(new GoogleMap.OnInfoWindowLongClickListener() {
+      @Override
+      public void onInfoWindowLongClick(Marker marker) {
+        marker.remove();
+      }
+    });
+
   }
   public void moveCamera(View view) {
     mapa.moveCamera(CameraUpdateFactory.newLatLng(ubicacion));
   }
   public void addMarker(View view) {
-    mapa.addMarker(new MarkerOptions().position(
-        mapa.getCameraPosition().target));
+    mapa.addMarker(new MarkerOptions()
+        .position(mapa.getCameraPosition().target)
+        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+        .draggable(true));
   }
   @Override public void onMapClick(LatLng puntoPulsado) {
-    Log.i("miubicacion", String.valueOf( puntoPulsado.latitude));
-    Log.i("miubicacion", String.valueOf( puntoPulsado.longitude));
-
-    mapa.addMarker(new MarkerOptions().position(puntoPulsado)
-        .icon(BitmapDescriptorFactory
-            .defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+    mapa.addMarker(new MarkerOptions()
+        .position(puntoPulsado)
+        .icon(BitmapDescriptorFactory.fromResource(R.mipmap.markermap))
+        .title("Marker onMapClick")
+        .snippet("Este marker es producto del evento de pulsar en el mapa"));
   }
+
+//  @Override
+//  public void onInfoWindowLongClick(Marker marker) {
+//    marker.remove();
+//  }
+
+
+
 }
